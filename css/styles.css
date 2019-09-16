@@ -1,0 +1,197 @@
+body {
+    background-color: #EEE; /* light gray */
+    color: #333; /* dark gray */
+    font-family: 'PT Sans', sans-serif; /* Google Font */
+    font-size: 1rem; /* default size, anyway */
+    padding: 0;
+    margin: 0;
+}
+
+#container { /* CSS Grid Layout */
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: 
+      "header"
+      "main"
+      "aside"
+      "footer";
+    background-color: #FFF;
+    min-height: 95vh;
+    margin: 0.5rem;
+    border: 1px solid #321;
+    padding: 0.5rem;
+}
+
+header {
+    background-color: #CCC;
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+    border: 1px solid #333;
+    min-height: 70vh;
+    padding: 1rem;
+}
+
+aside {
+    grid-area: aside;
+    background-color: #EEE;
+    min-height: 70vh;
+    padding: 1rem;
+}
+
+footer {
+  background-color: #888;
+  grid-area: footer;  
+}
+
+
+nav li {
+    list-style: none; /* get rid of bullet points */
+    margin: 0; /* left-right space, but no top-bottom space
+    font-size: 0.75rem; /* approx 12px */
+    font-weight: bold; /* kinda boldish */
+}
+
+header nav li {
+    /* make mobile drop down menu items more prominent */
+    background-color: #888;
+    color: #FFF;
+    padding: 15px;
+    font-size: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+header nav li:hover {  /* lighten bg color of list items of hover */
+    background-color: #AAA;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none; /* get rid of link underline 
+    */
+    color: #FFF;
+}
+
+nav ul, nav form { /* get search box inline w links */
+    display: inline-block; 
+}
+
+nav form { /* move search box away from links */
+    margin-left: 40px;
+}
+
+.btn { /* most if not all btns get this class */
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-burger { /* only the burger btn gets this */
+    float: right;
+    margin: 1rem;
+    display: inline;
+}
+
+input {
+    font-size: 1rem;
+    padding: 5px;
+}
+
+/* the nav ul appears-disappear w media query */
+/* in mobile-first mode, hide nav-ul */
+header nav ul {
+    display: none;
+}
+
+/* search form in mobile-first (1-col) mode */
+nav form { 
+    margin: 1rem;
+}
+
+footer {
+    text-align: center;
+}
+
+footer li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+#hero-img {
+    position: relative;
+    background: url('../images/sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#hero-img :after {
+    content: '';
+	position: absolute;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	background-color: rgb(90, 85, 85);
+	opacity: 0.10;
+}
+
+#hero-text {
+	text-align: center;
+	padding: 70px 0;
+    color: white;
+    font-size: 2rem;
+    text-shadow:  0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+}
+
+/* ##**## 2-COLUMN LAYOUT MEDIA QUERY ##**## */
+/* if viewport is 650+ pixels, switch to this: */
+@media (min-width: 750px) {
+    
+    #container {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+            "header header"
+            "main aside"
+            "footer footer"
+    }
+    
+    .btn-burger {
+        display: none;
+    }
+    
+    header nav li {
+        display: inline-block;
+        /* turn off all the prominent mobile view li properties */
+        background-color: transparent;
+        padding: 5px 15px;
+        font-size: 1rem;
+        text-align: left;
+        text-transform: none;
+        letter-spacing: 0px;
+        cursor: pointer;
+    }
+    
+    header nav li:hover {
+        background-color: transparent;
+    }
+    
+    nav ul {
+        /* prevent JS from overriding this property */
+        display: inline-block !important;
+    }
+    
+} /* close 2-column view media query */
+
+
+
+
+
+
